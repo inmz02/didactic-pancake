@@ -79,6 +79,22 @@ app.whenReady().then(() => {
   createMainWindow();
   createTray();
 
+  ipcMain.on("resize-window", (_, size) => {
+    if (!mainWindow) return;
+    const sizeMap = {
+      sm: { width: 300, height: 300 },
+      def: { width: 360, height: 380 },
+      lg: { width: 410, height: 400 },
+    };
+
+    const dimensions = sizeMap[size];
+    if (dimensions) {
+      mainWindow.setSize(dimensions.width, dimensions.height);
+      mainWindow.webContents.send("save-size", size);
+    }
+  });
+
+
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createMainWindow();

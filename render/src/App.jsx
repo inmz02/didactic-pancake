@@ -2,12 +2,16 @@ import Header from "./comps/Header";
 import { MainContainer } from "./comps/MainContainer";
 import { AddComp } from "./comps/AddComp";
 import { useState, useEffect } from "react";
+import { initializeWindowSize } from "./comps/initWindowSize";
+
+if (typeof window !== "undefined" && window.electronAPI) {
+  initializeWindowSize();
+}
 
 function App() {
   const [items, setItems] = useState([]);
   const [lang, setLang] = useState("en");
 
-  // ✅ Ensure selectedDateFormat is properly set and passed
   const [selectedDateFormat, setSelectedDateFormat] = useState("chineseKorean");
 
   useEffect(() => {
@@ -40,7 +44,6 @@ function App() {
     <div className="sm:w-full lg:w-[20%] w-full border border-[#b5b5b5] bg-[#eeeeee] h-full flex flex-col rounded-sm">
       <Header lang={lang} />
 
-      {/* ✅ Pass both selectedDateFormat and setSelectedDateFormat */}
       <MainContainer
         items={items}
         toggleCompletion={toggleCompletion}

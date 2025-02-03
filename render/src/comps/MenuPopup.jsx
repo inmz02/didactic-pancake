@@ -12,24 +12,23 @@ export const MenuPopup = ({
   selectedSize,
   setSelectedSize,
 }) => {
-  
   const [hoveredMenu, setHoveredMenu] = useState(null);
 
-    const dateFormatOptions = [
-      {
-        id: "englishOnly",
-        label: getTranslation("MenuVocab.EnglishOnly", lang),
-      },
-      {
-        id: "chineseOnly",
-        label: getTranslation("MenuVocab.ChineseOnly", lang),
-      },
-      { id: "koreanOnly", label: getTranslation("MenuVocab.KoreanOnly", lang) },
-      {
-        id: "chineseKorean",
-        label: getTranslation("MenuVocab.ChineseAndKorean", lang),
-      },
-    ];
+  const dateFormatOptions = [
+    {
+      id: "englishOnly",
+      label: getTranslation("MenuVocab.EnglishOnly", lang),
+    },
+    {
+      id: "chineseOnly",
+      label: getTranslation("MenuVocab.ChineseOnly", lang),
+    },
+    { id: "koreanOnly", label: getTranslation("MenuVocab.KoreanOnly", lang) },
+    {
+      id: "chineseKorean",
+      label: getTranslation("MenuVocab.ChineseAndKorean", lang),
+    },
+  ];
 
   const languageOptions = [
     { id: "zh", label: getTranslation("MenuVocab.LanguageChinese", lang) },
@@ -54,7 +53,7 @@ export const MenuPopup = ({
   };
 
   // Set the clicked option as selected
-    const handleDateFormatClick = (dateFormatOptionId) => {
+  const handleDateFormatClick = (dateFormatOptionId) => {
     setSelectedDateFormat(dateFormatOptionId);
     onClose(); // Close the menu after selecting an option
   };
@@ -67,6 +66,8 @@ export const MenuPopup = ({
 
   const handleSizeClick = (sizeOptionId) => {
     setSelectedSize(sizeOptionId);
+    // Send a message to the main process to resize the window
+    window.electronAPI.resizeWindow(sizeOptionId);
     onClose(); // Close the menu after selecting an option
   };
 

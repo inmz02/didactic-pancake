@@ -21,9 +21,7 @@ export const AddComp = ({
     if (input.trim() !== "") {
       addItem(input);
       setInput(""); // Clear the input after adding
-      alert("This is what the value is: " + input)
     } else {
-      alert("Not working!!!");
     }
   };
 

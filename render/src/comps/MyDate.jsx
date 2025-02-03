@@ -11,11 +11,6 @@ export const MyDate = ({ selectedDateFormat }) => {
     return () => clearInterval(interval);
   }, []);
 
-  // ✅ Debugging: Alert only when selectedDateFormat changes
-  // useEffect(() => {
-  //   alert(`Selected Date Format: ${selectedDateFormat}`);
-  // }, [selectedDateFormat]);
-
   const hour24 = time.getHours().toString().padStart(2, "0");
   const minute = time.getMinutes().toString().padStart(2, "0");
   const seconds = time.getSeconds().toString().padStart(2, "0");
