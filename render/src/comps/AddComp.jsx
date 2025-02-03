@@ -7,6 +7,8 @@ export const AddComp = ({ addItem }) => {
   const [input, setInput] = useState("");
   const [menuVisible, setMenuVisible] = useState(false); // Tracks menu visibility
   const [selectedDateFormat, setSelectedDateFormat] = useState("chineseKorean");
+  const [selectedLang, setSelectedLang] = useState("eng");
+  const [selectedSize, setSelectedSize] = useState("def");
   const menuRef = useRef(null);
 
   const handleAdd = () => {
@@ -67,27 +69,6 @@ export const AddComp = ({ addItem }) => {
         </div>
       </div>
 
-      {/* 
-
-      <div
-        className="flex myIcons border border-[#b5b5b5] cursor-pointer h-[27px]"
-        onClick={(e) => {
-          e.stopPropagation(); // Prevent click outside closing immediately
-          toggleMenu();
-        }}
-      >
-        <div
-          className="h-[25px] w-[20px] inner-con flex items-center justify-center text-[15px]"
-          title="Menu"
-        >
-          <BsThreeDotsVertical />
-        </div>
-      </div>
-      
-      
-      
-      */}
-
       <div
         className="flex myIcons border border-[#b5b5b5] cursor-pointer h-[27px]"
         onClick={(e) => {
@@ -107,6 +88,10 @@ export const AddComp = ({ addItem }) => {
               onClose={() => setMenuVisible(false)}
               selectedDateFormat={selectedDateFormat}
               setSelectedDateFormat={setSelectedDateFormat}
+              selectedLang={selectedLang}
+              setSelectedLang={setSelectedLang}
+              selectedSize={selectedSize}
+              setSelectedSize={setSelectedSize}
             />
           )}
         </div>
