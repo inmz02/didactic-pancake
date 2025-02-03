@@ -1,7 +1,8 @@
 import { FaRegWindowMinimize, FaRegWindowMaximize } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import { getTranslation } from "./translations";
 
-const Header = () => {
+const Header = ({ lang }) => {
   const minimizeWindow = () => {
     window.electronAPI.minimizeToTray();
   };
@@ -22,7 +23,7 @@ const Header = () => {
         <div
           className="border border-[#b5b5b5] svg-con"
           onClick={minimizeWindow}
-          title="Minimise"
+          title={getTranslation("Header.Minimise", lang)}
         >
           <FaRegWindowMinimize onClick={minimizeWindow} />
         </div>
@@ -32,7 +33,7 @@ const Header = () => {
         <div
           className="border border-[#b5b5b5] svg-con"
           onClick={closeApp}
-          title="Close"
+          title={getTranslation("Header.Close", lang)}
         >
           <RxCross2 onClick={closeApp} />
         </div>

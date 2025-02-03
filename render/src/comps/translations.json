@@ -1,0 +1,63 @@
+{
+  "languages": ["en", "zh", "ko"],
+
+  "MenuVocab": {
+    "ChineseOnly": { "en": "Chinese Only", "zh": "仅中文", "ko": "중국어만" },
+    "KoreanOnly": { "en": "Korean Only", "zh": "仅韩语", "ko": "한국어만" },
+    "ChineseAndKorean": {
+      "en": "Chinese & Korean",
+      "zh": "中文和韩语",
+      "ko": "중국어와 한국어"
+    },
+    "EnglishOnly": { "en": "English Only", "zh": "仅英语", "ko": "영어만" },
+    "LanguageChinese": { "en": "Chinese", "zh": "中文", "ko": "중국어" },
+    "LanguageEnglish": { "en": "English", "zh": "英语", "ko": "영어" },
+    "LanguageKorean": { "en": "Korean", "zh": "韩语", "ko": "한국어" },
+    "SizeSmall": { "en": "Small", "zh": "小", "ko": "작은" },
+    "SizeDefault": { "en": "Default", "zh": "默认", "ko": "기본" },
+    "SizeLarge": { "en": "Large", "zh": "大", "ko": "큰" },
+    "Theme": { "en": "Theme", "zh": "主题", "ko": "테마" },
+    "DateFormat": { "en": "Date Format", "zh": "日期格式", "ko": "날짜 형식" },
+    "Language": {
+      "en": "Language",
+      "zh": "语言",
+      "ko": "언어"
+    },
+    "Size": { "en": "Size", "zh": "大小", "ko": "크기" }
+  },
+
+  "Misc": {
+    "AddTaskPlaceholder": {
+      "en": "Enter a new to-do...",
+      "zh": "输入一个新的待办事项...",
+      "ko": "새 할 일을 입력하세요..."
+    },
+    "EmptyList": {
+      "en": "Empty list...",
+      "zh": "清单为空...",
+      "ko": "목록 비어 있음..."
+    },
+    "AddToList": {
+      "en": "Add to list",
+      "zh": "添加到列表",
+      "ko": "목록에 추가"
+    },
+    "Menu": {
+      "en": "Menu",
+      "zh": "菜单",
+      "ko": "메뉴"
+    }
+  },
+  "Header": {
+    "Close": {
+      "en": "Close",
+      "zh": "关闭",
+      "ko": "닫기"
+    },
+    "Minimise": {
+      "en": "Minimise",
+      "zh": "最小化",
+      "ko": "최소화"
+    }
+  }
+}

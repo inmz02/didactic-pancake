@@ -1,8 +1,16 @@
 import { MyDate } from "./MyDate";
 import { TiDelete } from "react-icons/ti";
 import { useState, useEffect, useRef } from "react";
+import { getTranslation } from "./translations";
 
-export const MainContainer = ({ items, toggleCompletion, setItems }) => {
+export const MainContainer = ({
+  items,
+  toggleCompletion,
+  setItems,
+  lang,
+  selectedDateFormat, // ✅ Ensure selectedDateFormat is received
+  setSelectedDateFormat,
+}) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const selectedItemRef = useRef(null);
 
@@ -47,10 +55,15 @@ export const MainContainer = ({ items, toggleCompletion, setItems }) => {
   return (
     <div className="flex-grow border-t border-white bg-[#eeeeee] p-1 pb-0 flex flex-col overflow-auto">
       <div className="h-full bg-black text-white p-2 flex flex-col gap-3 overflow-auto border-2 border-t-[#b5b5b5] border-l-[#b5b5b5] border-b-white border-r-white myHiddenScrollbar">
-        <MyDate />
+        
+        {/* ✅ Pass selectedDateFormat to MyDate */}
+        <MyDate selectedDateFormat={selectedDateFormat} />
+
         {/* Display the "Empty list..." text if no items exist */}
         {items.length === 0 && (
-          <p className="text-gray-500 text-center mt-4">Empty list...</p>
+          <p className="text-gray-500 text-center mt-4">
+            {getTranslation("Misc.EmptyList", lang)}
+          </p>
         )}
         {/* Displaying the List Items */}
         <div className="myHiddenScrollbar">

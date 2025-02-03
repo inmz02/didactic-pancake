@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { getTranslation } from "./translations";
 
 export const MenuPopup = ({
   onClose,
+  lang,
+  setLang,
   selectedDateFormat,
   setSelectedDateFormat,
   selectedLang,
@@ -9,29 +12,35 @@ export const MenuPopup = ({
   selectedSize,
   setSelectedSize,
 }) => {
-  // Track hovered parent item for submenus
+  
   const [hoveredMenu, setHoveredMenu] = useState(null);
 
-  // List of "Date Format" options
-  const dateFormatOptions = [
-    { id: "chineseOnly", label: "Chinese Only" },
-    { id: "koreanOnly", label: "Korean Only" },
-    { id: "chineseKorean", label: "Chinese & Korean" },
-    { id: "englishOnly", label: "English Only" },
-  ];
+    const dateFormatOptions = [
+      {
+        id: "englishOnly",
+        label: getTranslation("MenuVocab.EnglishOnly", lang),
+      },
+      {
+        id: "chineseOnly",
+        label: getTranslation("MenuVocab.ChineseOnly", lang),
+      },
+      { id: "koreanOnly", label: getTranslation("MenuVocab.KoreanOnly", lang) },
+      {
+        id: "chineseKorean",
+        label: getTranslation("MenuVocab.ChineseAndKorean", lang),
+      },
+    ];
 
-  // List of "Languages" options
   const languageOptions = [
-    { id: "cn", label: "Chinese" },
-    { id: "eng", label: "English" },
-    { id: "kor", label: "Korean" },
+    { id: "zh", label: getTranslation("MenuVocab.LanguageChinese", lang) },
+    { id: "en", label: getTranslation("MenuVocab.LanguageEnglish", lang) },
+    { id: "ko", label: getTranslation("MenuVocab.LanguageKorean", lang) },
   ];
 
-  // List of "Languages" options
   const sizeOptions = [
-    { id: "sm", label: "Small" },
-    { id: "def", label: "Default" },
-    { id: "lg", label: "Large" },
+    { id: "sm", label: getTranslation("MenuVocab.SizeSmall", lang) },
+    { id: "def", label: getTranslation("MenuVocab.SizeDefault", lang) },
+    { id: "lg", label: getTranslation("MenuVocab.SizeLarge", lang) },
   ];
 
   // Show submenu when hovering
@@ -45,17 +54,19 @@ export const MenuPopup = ({
   };
 
   // Set the clicked option as selected
-  const handleDateFormatClick = (dateFormatOptionId) => {
-    setSelectedDateFormat(dateFormatOptionId); // Update the selected option
+    const handleDateFormatClick = (dateFormatOptionId) => {
+    setSelectedDateFormat(dateFormatOptionId);
     onClose(); // Close the menu after selecting an option
   };
 
   const handleLangClick = (langOptionId) => {
-    setSelectedLang(langOptionId); // Update the selected option
+    setSelectedLang(langOptionId);
+    setLang(langOptionId); // Update the app's language
     onClose(); // Close the menu after selecting an option
   };
+
   const handleSizeClick = (sizeOptionId) => {
-    setSelectedSize(sizeOptionId); // Update the selected option
+    setSelectedSize(sizeOptionId);
     onClose(); // Close the menu after selecting an option
   };
 
@@ -68,7 +79,9 @@ export const MenuPopup = ({
       >
         <ul className="text-black relative">
           {/* Theme */}
-          <li className="p-2 hover:bg-[#6d7a945e] cursor-pointer">Theme</li>
+          <li className="p-2 hover:bg-[#6d7a945e] cursor-pointer">
+            {getTranslation("MenuVocab.Theme", lang)}
+          </li>
 
           {/* Language with Submenu */}
           <li
@@ -76,11 +89,10 @@ export const MenuPopup = ({
             onMouseEnter={() => handleMouseEnter("language")}
             onMouseLeave={handleMouseLeave}
           >
-            Language
+            {getTranslation("MenuVocab.Language", lang)}
             {hoveredMenu === "language" && (
               <div className="absolute top-0 right-full w-32 bg-[#eeeeee] shadow-md border border-[#c5c5c5]">
                 <ul>
-                  {/* Render "Date Format" options dynamically */}
                   {languageOptions.map((option) => (
                     <li
                       key={option.id}
@@ -102,11 +114,10 @@ export const MenuPopup = ({
             onMouseEnter={() => handleMouseEnter("date")}
             onMouseLeave={handleMouseLeave}
           >
-            Date Format
+            {getTranslation("MenuVocab.DateFormat", lang)}
             {hoveredMenu === "date" && (
               <div className="absolute bottom-[-33px] right-full w-36 bg-[#eeeeee] shadow-md border border-[#c5c5c5]">
                 <ul>
-                  {/* Render "Date Format" options dynamically */}
                   {dateFormatOptions.map((option) => (
                     <li
                       key={option.id}
@@ -128,11 +139,10 @@ export const MenuPopup = ({
             onMouseEnter={() => handleMouseEnter("size")}
             onMouseLeave={handleMouseLeave}
           >
-            Size
+            {getTranslation("MenuVocab.Size", lang)}
             {hoveredMenu === "size" && (
               <div className="absolute bottom-0 right-full w-32 bg-[#eeeeee] shadow-md border border-[#c5c5c5]">
                 <ul>
-                  {/* Render "Date Format" options dynamically */}
                   {sizeOptions.map((option) => (
                     <li
                       key={option.id}

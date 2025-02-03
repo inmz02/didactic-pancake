@@ -2,12 +2,18 @@ import { RiArrowRightUpFill } from "react-icons/ri";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { useState, useRef, useEffect } from "react";
 import { MenuPopup } from "./MenuPopup";
+import { getTranslation } from "./translations";
 
-export const AddComp = ({ addItem }) => {
+export const AddComp = ({
+  addItem,
+  lang,
+  setLang,
+  selectedDateFormat,
+  setSelectedDateFormat,
+}) => {
   const [input, setInput] = useState("");
   const [menuVisible, setMenuVisible] = useState(false); // Tracks menu visibility
-  const [selectedDateFormat, setSelectedDateFormat] = useState("chineseKorean");
-  const [selectedLang, setSelectedLang] = useState("eng");
+  const [selectedLang, setSelectedLang] = useState("en");
   const [selectedSize, setSelectedSize] = useState("def");
   const menuRef = useRef(null);
 
@@ -52,7 +58,8 @@ export const AddComp = ({ addItem }) => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Enter a new to-do. . ."
+          placeholder={getTranslation("Misc.AddTaskPlaceholder", lang)}
+          // placeholder="Enter a new to-do. . ."
         />
       </div>
 
@@ -63,7 +70,7 @@ export const AddComp = ({ addItem }) => {
       >
         <div
           className="h-[25px] w-[27px] inner-con flex items-center justify-center text-xl"
-          title="Add to list"
+          title={getTranslation("Misc.AddToList", lang)}
         >
           <RiArrowRightUpFill />
         </div>
@@ -78,7 +85,7 @@ export const AddComp = ({ addItem }) => {
       >
         <div
           className="h-[25px] w-[20px] inner-con flex items-center justify-center text-[15px]"
-          title="Menu"
+          title={getTranslation("Misc.Menu", lang)}
         >
           <FaEllipsisVertical />
 
@@ -86,6 +93,8 @@ export const AddComp = ({ addItem }) => {
           {menuVisible && (
             <MenuPopup
               onClose={() => setMenuVisible(false)}
+              lang={lang}
+              setLang={setLang}
               selectedDateFormat={selectedDateFormat}
               setSelectedDateFormat={setSelectedDateFormat}
               selectedLang={selectedLang}
