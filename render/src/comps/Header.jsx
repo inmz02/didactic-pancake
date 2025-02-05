@@ -13,11 +13,11 @@ const Header = ({ lang }) => {
   return (
     <div
       id="myHeader"
-      className="flex justify-between items-center p-1 bg-[#b2c6f1] border-b border-[#b5b5b5] h-[26px] rounded-t-sm"
+      className="flex justify-between items-center p-1 border-b border-[#b5b5b5] h-[26px] rounded-t-sm"
     >
       <div className="flex gap-[6px] items-center">
         <img src="../src/icon.gif" alt="" className="h-fit w-[18px]" />
-        <h1 className="font-medium text-[#46586E]">e2Do</h1>
+        <h1>e2Do</h1>
       </div>
       <div className="flex myIcons h-full text-base ">
         <div

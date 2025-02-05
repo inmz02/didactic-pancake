@@ -3,6 +3,7 @@ import { MainContainer } from "./comps/MainContainer";
 import { AddComp } from "./comps/AddComp";
 import { useState, useEffect } from "react";
 import { initializeWindowSize } from "./comps/initWindowSize";
+import "./styles.scss";
 
 if (typeof window !== "undefined" && window.electronAPI) {
   initializeWindowSize();
@@ -11,8 +12,14 @@ if (typeof window !== "undefined" && window.electronAPI) {
 function App() {
   const [items, setItems] = useState([]);
   const [lang, setLang] = useState("en");
-
+  const [selectedTheme, setSelectedTheme] = useState('theme-blue');
   const [selectedDateFormat, setSelectedDateFormat] = useState("chineseKorean");
+
+
+  // Theme changing
+  useEffect(() => {
+    document.documentElement.className = selectedTheme;
+  }, [selectedTheme]);
 
   useEffect(() => {
     const savedItems = JSON.parse(localStorage.getItem("todo-items"));
@@ -59,6 +66,8 @@ function App() {
         setLang={setLang}
         selectedDateFormat={selectedDateFormat}
         setSelectedDateFormat={setSelectedDateFormat}
+        selectedTheme={selectedTheme}
+        setSelectedTheme={setSelectedTheme}
       />
     </div>
   );

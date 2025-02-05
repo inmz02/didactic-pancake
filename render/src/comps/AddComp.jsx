@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { RiArrowRightUpFill } from "react-icons/ri";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { useState, useRef, useEffect } from "react";
@@ -10,6 +11,8 @@ export const AddComp = ({
   setLang,
   selectedDateFormat,
   setSelectedDateFormat,
+  selectedTheme,
+  setSelectedTheme,
 }) => {
   const [input, setInput] = useState("");
   const [menuVisible, setMenuVisible] = useState(false); // Tracks menu visibility
@@ -21,8 +24,7 @@ export const AddComp = ({
     if (input.trim() !== "") {
       addItem(input);
       setInput(""); // Clear the input after adding
-    } else {
-    }
+    } 
   };
 
   // 🐶 Press the enter key to push the item up!
@@ -51,7 +53,6 @@ export const AddComp = ({
 
   return (
     <div className="bg-[#eeeeee] gap-1 flex flex-row overflow-none h-[28px] rounded-b-sm m-1 mr-[5px]">
-      {/* The input container bg-[#eeeeee] */}
       <div className="inputContainer flex-grow">
         <input
           type="text"
@@ -60,7 +61,6 @@ export const AddComp = ({
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={getTranslation("Misc.AddTaskPlaceholder", lang)}
-          // placeholder="Enter a new to-do. . ."
         />
       </div>
 
@@ -102,6 +102,8 @@ export const AddComp = ({
               setSelectedLang={setSelectedLang}
               selectedSize={selectedSize}
               setSelectedSize={setSelectedSize}
+              selectedTheme={selectedTheme}
+              setSelectedTheme={setSelectedTheme}
             />
           )}
         </div>

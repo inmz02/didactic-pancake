@@ -16,7 +16,18 @@
     "SizeSmall": { "en": "Small", "zh": "小", "ko": "작은" },
     "SizeDefault": { "en": "Default", "zh": "默认", "ko": "기본" },
     "SizeLarge": { "en": "Large", "zh": "大", "ko": "큰" },
-    "Theme": { "en": "Theme", "zh": "主题", "ko": "테마" },
+    "Theme": { 
+      "en": "Theme", 
+      "zh": "主题", 
+      "ko": "테마",
+      "Colours" : {
+        "Blue": { "en": "Blue", "zh": "蓝色", "ko": "파란색" },
+        "Pink": { "en": "Pink", "zh": "粉色", "ko": "분홍색" },
+        "Green": { "en": "Green", "zh": "绿色", "ko": "녹색" },
+        "Purple": { "en": "Purple", "zh": "紫色", "ko": "보라색" },
+        "Orange": { "en": "Orange", "zh": "橙色", "ko": "주황색" }
+      }
+     },
     "DateFormat": { "en": "Date Format", "zh": "日期格式", "ko": "날짜 형식" },
     "Language": {
       "en": "Language",

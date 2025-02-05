@@ -1,7 +1,11 @@
+// scss-lint:disable unknownAtRules
+@use '_themeColours.scss'; 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Play:wght@400;700&family=Silkscreen:wght@400;700&display=swap");
+
 
 * {
   margin: 0;
@@ -20,6 +24,12 @@ body {
     #myHeader {
       -webkit-app-region: drag;
       cursor: grab;
+      background-color: var(--header-bg);
+
+      h1 {
+        color: var(--header-text);
+        font-weight: 500;
+      }
 
       .myIcons,
       .svg-con {
@@ -44,10 +54,11 @@ body {
     .listItem {
       @apply p-1 border border-black;
       &:hover {
-        @apply border-[#6d7a945e] cursor-pointer;
+        border-color: var(--main-list-border-hover-selected);
+        @apply cursor-pointer;
       }
       &.selected {
-        @apply bg-[#6d7a945e];
+        background-color: var(--main-list-border-hover-selected);
       }
     }
 
@@ -58,6 +69,21 @@ body {
         @apply text-red-500;
       }
     }
+
+    .menuPopupMain {
+      @apply p-2 cursor-pointer relative;
+
+      &:hover {
+        background-color: var(--main-popup-shadow-hover-bg);
+      }
+
+      .menuPopUpSub {
+        @apply  p-2 cursor-pointer flex gap-[6px];
+        &:hover {
+          background-color: var(--main-popup-shadow-hover-bg);
+        }
+      }
+    }
   
 
     .myIcons {
@@ -65,8 +91,6 @@ body {
         background-color: #eeeeee;
         border-top: 1px solid white;
         border-left: 1px solid white;
-        // border-bottom: 1px solid #b5b5b5;
-        // border-right: 1px solid #b5b5b5;
         padding: 2px;
         cursor: pointer;
 
@@ -76,8 +100,7 @@ body {
           border-right: 1px solid white;
           border-top: none;
           border-left: none;
-          // border-top: 1px solid #b5b5b5;
-          // border-left: 1px solid #b5b5b5;
+          
         }
       }
 
