@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { RiArrowRightUpFill } from "react-icons/ri";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { useState, useRef, useEffect } from "react";
@@ -15,14 +16,14 @@ export const AddComp = ({
   const [menuVisible, setMenuVisible] = useState(false); // Tracks menu visibility
   const [selectedLang, setSelectedLang] = useState("en");
   const [selectedSize, setSelectedSize] = useState("def");
+  const [selectedTheme, setSelectedTheme] = useState("blue");
   const menuRef = useRef(null);
 
   const handleAdd = () => {
     if (input.trim() !== "") {
       addItem(input);
       setInput(""); // Clear the input after adding
-    } else {
-    }
+    } 
   };
 
   // 🐶 Press the enter key to push the item up!
@@ -102,6 +103,8 @@ export const AddComp = ({
               setSelectedLang={setSelectedLang}
               selectedSize={selectedSize}
               setSelectedSize={setSelectedSize}
+              selectedTheme={selectedTheme}
+              setSelectedTheme={setSelectedTheme}
             />
           )}
         </div>

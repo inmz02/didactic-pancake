@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { MyDate } from "./MyDate";
 import { TiDelete } from "react-icons/ti";
 import { useState, useEffect, useRef } from "react";
@@ -8,8 +9,7 @@ export const MainContainer = ({
   toggleCompletion,
   setItems,
   lang,
-  selectedDateFormat, // ✅ Ensure selectedDateFormat is received
-  setSelectedDateFormat,
+  selectedDateFormat,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const selectedItemRef = useRef(null);

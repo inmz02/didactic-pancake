@@ -1,0 +1,36 @@
+:root {
+    --header-bg: #b2c6f1;
+    --header-text: #46586E;
+    --main-list-border-hover-selected: hsla(220, 15%, 50%, 0.369);
+    --main-popup-shadow-hover-bg: #b2c6f199;
+}
+:theme-orange {
+    --header-bg: #e7cba8;
+    --header-text: #6d491e;
+    --main-list-border-hover-selected: hsla(32, 16%, 47%, 0.369);
+    --main-popup-shadow-hover-bg: hsla(33, 57%, 78%, 0.6);
+}
+:theme-purple {
+    --header-bg: #b6a8e7;
+    --header-text: #37276f;
+    --main-list-border-hover-selected: hsla(254, 19%, 44%, 0.369);
+    --main-popup-shadow-hover-bg: hsla(253, 57%, 78%, 0.6);
+}
+:theme-green {
+    --header-bg: #96d195;
+    --header-text: #3c5c3c;
+    --main-list-border-hover-selected: hsla(119, 23%, 44%, 0.369);
+    --main-popup-shadow-hover-bg: hsla(119, 39%, 70%, 0.6);
+}
+:theme-pink {
+    --header-bg: #ffd1e4;
+    --header-text: #871e4a;
+    --main-list-border-hover-selected: #9861785e;
+    --main-popup-shadow-hover-bg: #ffd1e499;
+}
+:theme-blue {
+    --header-bg: #b2c6f1;
+    --header-text: #46586E;
+    --main-list-border-hover-selected: hsla(220, 15%, 50%, 0.369);
+    --main-popup-shadow-hover-bg: #b2c6f199;
+}
