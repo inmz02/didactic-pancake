@@ -4,6 +4,7 @@ import { AddComp } from "./comps/AddComp";
 import { useState, useEffect } from "react";
 import { initializeWindowSize } from "./comps/initWindowSize";
 import "./styles.scss";
+import { use } from "react";
 
 if (typeof window !== "undefined" && window.electronAPI) {
   initializeWindowSize();
@@ -12,14 +13,28 @@ if (typeof window !== "undefined" && window.electronAPI) {
 function App() {
   const [items, setItems] = useState([]);
   const [lang, setLang] = useState("en");
-  const [selectedTheme, setSelectedTheme] = useState('theme-blue');
+  const [selectedTheme, setSelectedTheme] = useState(() => 
+    localStorage.getItem("selectedTheme") || "theme-blue"
+  );
+  const [selectedMode, setSelectedMode] = useState(() => 
+    localStorage.getItem("selectedMode") || "darkMode"
+  );
   const [selectedDateFormat, setSelectedDateFormat] = useState("chineseKorean");
 
-
-  // Theme changing
+  // ✅ Apply theme and save to localStorage
   useEffect(() => {
-    document.documentElement.className = selectedTheme;
+    document.documentElement.classList.remove("theme-blue", "theme-pink", "theme-green", "theme-purple", "theme-orange");
+    document.documentElement.classList.add(selectedTheme);
+    localStorage.setItem("selectedTheme", selectedTheme);
   }, [selectedTheme]);
+
+  // ✅ Apply mode and save to localStorage
+  useEffect(() => {
+    document.documentElement.classList.remove("lightMode", "darkMode");
+    document.documentElement.classList.add(selectedMode);
+    localStorage.setItem("selectedMode", selectedMode);
+  }, [selectedMode]);
+
 
   useEffect(() => {
     const savedItems = JSON.parse(localStorage.getItem("todo-items"));
@@ -68,6 +83,8 @@ function App() {
         setSelectedDateFormat={setSelectedDateFormat}
         selectedTheme={selectedTheme}
         setSelectedTheme={setSelectedTheme}
+        selectedMode={selectedMode}
+        setSelectedMode={setSelectedMode}
       />
     </div>
   );

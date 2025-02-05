@@ -13,6 +13,8 @@ export const AddComp = ({
   setSelectedDateFormat,
   selectedTheme,
   setSelectedTheme,
+  selectedMode,
+  setSelectedMode,
 }) => {
   const [input, setInput] = useState("");
   const [menuVisible, setMenuVisible] = useState(false); // Tracks menu visibility
@@ -104,6 +106,8 @@ export const AddComp = ({
               setSelectedSize={setSelectedSize}
               selectedTheme={selectedTheme}
               setSelectedTheme={setSelectedTheme}
+              selectedMode={selectedMode}
+              setSelectedMode={setSelectedMode}
             />
           )}
         </div>
