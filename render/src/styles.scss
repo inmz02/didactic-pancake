@@ -1,9 +1,10 @@
 // scss-lint:disable unknownAtRules
+@use '_themeColours.scss'; 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Play:wght@400;700&family=Silkscreen:wght@400;700&display=swap");
-@import '_themeColours.scss'; 
 
 
 * {

@@ -11,12 +11,13 @@ export const AddComp = ({
   setLang,
   selectedDateFormat,
   setSelectedDateFormat,
+  selectedTheme,
+  setSelectedTheme,
 }) => {
   const [input, setInput] = useState("");
   const [menuVisible, setMenuVisible] = useState(false); // Tracks menu visibility
   const [selectedLang, setSelectedLang] = useState("en");
   const [selectedSize, setSelectedSize] = useState("def");
-  const [selectedTheme, setSelectedTheme] = useState("blue");
   const menuRef = useRef(null);
 
   const handleAdd = () => {
@@ -52,7 +53,6 @@ export const AddComp = ({
 
   return (
     <div className="bg-[#eeeeee] gap-1 flex flex-row overflow-none h-[28px] rounded-b-sm m-1 mr-[5px]">
-      {/* The input container bg-[#eeeeee] */}
       <div className="inputContainer flex-grow">
         <input
           type="text"
@@ -61,7 +61,6 @@ export const AddComp = ({
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={getTranslation("Misc.AddTaskPlaceholder", lang)}
-          // placeholder="Enter a new to-do. . ."
         />
       </div>
 

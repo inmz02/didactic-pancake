@@ -47,18 +47,18 @@ export const MenuPopup = ({
   ];
 
   const themeOptions = [
-    { id: "blue", label: getTranslation("MenuVocab.Theme.Colours.Blue", lang) },
-    { id: "pink", label: getTranslation("MenuVocab.Theme.Colours.Pink", lang) },
+    { id: "theme-blue", label: getTranslation("MenuVocab.Theme.Colours.Blue", lang) },
+    { id: "theme-pink", label: getTranslation("MenuVocab.Theme.Colours.Pink", lang) },
     {
-      id: "green",
+      id: "theme-green",
       label: getTranslation("MenuVocab.Theme.Colours.Green", lang),
     },
     {
-      id: "purple",
+      id: "theme-purple",
       label: getTranslation("MenuVocab.Theme.Colours.Purple", lang),
     },
     {
-      id: "orange",
+      id: "theme-orange",
       label: getTranslation("MenuVocab.Theme.Colours.Orange", lang),
     },
   ];
@@ -81,21 +81,19 @@ export const MenuPopup = ({
 
   const handleLangClick = (langOptionId) => {
     setSelectedLang(langOptionId);
-    setLang(langOptionId); // Update the app's language
-    onClose(); // Close the menu after selecting an option
+    setLang(langOptionId); 
+    onClose(); 
   };
 
   const handleThemeClick = (themeOptionId) => {
     setSelectedTheme(themeOptionId);
-    setSelectedTheme(themeOptionId); // Update the app's language
-    onClose(); // Close the menu after selecting an option
-  };
+    onClose(); 
+  };  
 
   const handleSizeClick = (sizeOptionId) => {
     setSelectedSize(sizeOptionId);
-    // Send a message to the main process to resize the window
     window.electronAPI.resizeWindow(sizeOptionId);
-    onClose(); // Close the menu after selecting an option
+    onClose(); 
   };
 
   return (
@@ -112,7 +110,6 @@ export const MenuPopup = ({
             onMouseEnter={() => handleMouseEnter("theme")}
             onMouseLeave={handleMouseLeave}
           >
-            {/* {getTranslation("MenuVocab.Theme", lang)} */}
 
             {!hoveredMenu || hoveredMenu !== "theme" ? (
               getTranslation("MenuVocab.Theme", lang)
