@@ -14,6 +14,34 @@
   font-family: "Inconsolata", monospace;
 }
 
+// Dark and Light Mode
+.darkMode {
+  .listItem {
+    @apply border-black;
+  }
+  .inputContainer {
+    @apply bg-black text-white !important;
+  }
+  .mainContainerTasks {
+    @apply bg-black text-white !important;
+  }
+}
+
+.lightMode {
+  .listItem {
+    @apply border-white;
+  }
+  .inputContainer {
+    @apply bg-white text-black;
+  }
+  .mainContainerTasks {
+    background-image: linear-gradient(#f4f4f4c4 1.5px, transparent 1.5px), linear-gradient(to right, #f4f4f4c4 1.5px, transparent 1.5px);
+    background-size: 17px 17px;
+    background-color: #ffffff;	
+    @apply text-black;
+  }
+}
+
 body {
   @apply w-full h-dvh;
   background-color: transparent;
@@ -47,12 +75,16 @@ body {
       }
     }
 
+    .mainContainerTasks {
+      @apply h-full p-2 flex flex-col gap-3 overflow-auto border-2 border-t-[#b5b5b5] border-l-[#b5b5b5] border-b-white border-r-white;
+    }
+
     .inputContainer {
-      @apply h-[28px] p-1 bg-black text-white flex flex-col flex-grow overflow-auto border-2 border-t-[#b5b5b5] border-l-[#b5b5b5] border-b-white border-r-white;
+      @apply h-[28px] p-1 flex flex-col flex-grow overflow-auto border-2 border-t-[#b5b5b5] border-l-[#b5b5b5] border-b-white border-r-white;
     }
 
     .listItem {
-      @apply p-1 border border-black;
+      @apply p-1 border;
       &:hover {
         border-color: var(--main-list-border-hover-selected);
         @apply cursor-pointer;
@@ -84,7 +116,6 @@ body {
         }
       }
     }
-  
 
     .myIcons {
       .inner-con {
@@ -131,5 +162,6 @@ body {
         }
       }
     }
+    
   }
 }

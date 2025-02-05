@@ -34,7 +34,16 @@
       "zh": "语言",
       "ko": "언어"
     },
-    "Size": { "en": "Size", "zh": "大小", "ko": "크기" }
+    "Size": { "en": "Size", "zh": "大小", "ko": "크기" },
+    "Mode": {
+      "Main": { 
+        "en": "Mode:",
+        "zh": "模式：",
+        "ko": "모드:"
+      },
+      "Light" : { "en": "Light", "zh": "亮", "ko": "밝은" },
+      "Dark" : { "en": "Dark", "zh": "暗", "ko": "어두운" }
+    }
   },
 
   "Misc": {

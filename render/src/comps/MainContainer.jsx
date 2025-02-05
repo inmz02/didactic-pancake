@@ -54,7 +54,7 @@ export const MainContainer = ({
 
   return (
     <div className="flex-grow border-t border-white bg-[#eeeeee] p-1 pb-0 flex flex-col overflow-auto">
-      <div className="h-full bg-black text-white p-2 flex flex-col gap-3 overflow-auto border-2 border-t-[#b5b5b5] border-l-[#b5b5b5] border-b-white border-r-white myHiddenScrollbar">
+      <div className="mainContainerTasks myHiddenScrollbar">
         
         {/* ✅ Pass selectedDateFormat to MyDate */}
         <MyDate selectedDateFormat={selectedDateFormat} />

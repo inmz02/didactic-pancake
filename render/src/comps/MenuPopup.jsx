@@ -15,6 +15,8 @@ export const MenuPopup = ({
   setSelectedSize,
   selectedTheme,
   setSelectedTheme,
+  selectedMode,
+  setSelectedMode,
 }) => {
   const [hoveredMenu, setHoveredMenu] = useState(null);
 
@@ -47,8 +49,14 @@ export const MenuPopup = ({
   ];
 
   const themeOptions = [
-    { id: "theme-blue", label: getTranslation("MenuVocab.Theme.Colours.Blue", lang) },
-    { id: "theme-pink", label: getTranslation("MenuVocab.Theme.Colours.Pink", lang) },
+    {
+      id: "theme-blue",
+      label: getTranslation("MenuVocab.Theme.Colours.Blue", lang),
+    },
+    {
+      id: "theme-pink",
+      label: getTranslation("MenuVocab.Theme.Colours.Pink", lang),
+    },
     {
       id: "theme-green",
       label: getTranslation("MenuVocab.Theme.Colours.Green", lang),
@@ -81,19 +89,26 @@ export const MenuPopup = ({
 
   const handleLangClick = (langOptionId) => {
     setSelectedLang(langOptionId);
-    setLang(langOptionId); 
-    onClose(); 
+    setLang(langOptionId);
+    onClose();
   };
 
   const handleThemeClick = (themeOptionId) => {
     setSelectedTheme(themeOptionId);
-    onClose(); 
-  };  
+    onClose();
+  };
 
   const handleSizeClick = (sizeOptionId) => {
     setSelectedSize(sizeOptionId);
     window.electronAPI.resizeWindow(sizeOptionId);
-    onClose(); 
+    onClose();
+  };
+
+  const handleModeClick = () => {
+    const newMode = selectedMode === "darkMode" ? "lightMode" : "darkMode";
+    console.log("Toggling Mode:", newMode); // Debugging
+    setSelectedMode(newMode);
+    onClose();
   };
 
   return (
@@ -110,7 +125,6 @@ export const MenuPopup = ({
             onMouseEnter={() => handleMouseEnter("theme")}
             onMouseLeave={handleMouseLeave}
           >
-
             {!hoveredMenu || hoveredMenu !== "theme" ? (
               getTranslation("MenuVocab.Theme", lang)
             ) : (
@@ -144,7 +158,6 @@ export const MenuPopup = ({
             onMouseEnter={() => handleMouseEnter("language")}
             onMouseLeave={handleMouseLeave}
           >
-
             {!hoveredMenu || hoveredMenu !== "language" ? (
               getTranslation("MenuVocab.Language", lang)
             ) : (
@@ -234,6 +247,21 @@ export const MenuPopup = ({
                 </ul>
               </div>
             )}
+          </li>
+
+          {/* Colour Modes */}
+          <li
+            className="menuPopupMain"
+            onClick={handleModeClick}
+            onMouseLeave={handleMouseLeave}
+          >
+            {getTranslation("MenuVocab.Mode.Main", lang)}
+
+            <span className="font-bold">
+              {selectedMode === "darkMode"
+                ? getTranslation("MenuVocab.Mode.Dark", lang)
+                : getTranslation("MenuVocab.Mode.Light", lang)}
+            </span>
           </li>
         </ul>
       </div>
